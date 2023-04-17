@@ -27,3 +27,23 @@ def deleterec(request,id):
     mem.delete()
 
     return redirect('index')
+
+def update(request,id):
+    mem = Member.objects.get(id=id)
+    context = {
+        'mem':mem,
+    }
+
+    return render(request,'update.html',context=context)
+
+def updaterec(request,id):
+    x = request.POST.get("firstName")
+    y = request.POST.get("lastName")
+    
+    mem = Member.objects.get(id=id)
+
+    mem.firstname = x
+    mem.lastname = y
+    mem.save()
+
+    return redirect('index')
