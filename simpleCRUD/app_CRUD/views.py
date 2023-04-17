@@ -22,3 +22,8 @@ def addrec(request):
 
     return redirect('index')
     
+def deleterec(request,id):
+    mem = Member.objects.get(id=id)
+    mem.delete()
+
+    return redirect('index')
