@@ -7,7 +7,7 @@ from .models import Member
 def index(request):
     mem = Member.objects.all()
     context = {
-        'mem':mem,
+        'member':mem,
     }
     return render(request,'index.html',context=context)
 
